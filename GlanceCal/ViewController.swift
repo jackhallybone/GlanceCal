@@ -161,7 +161,7 @@ class ViewController: UIViewController {
         let eventLocation = event.location ?? "Unknown Location"
         let eventCalCol = UIColor.init(cgColor: event.calendar.cgColor)
 
-        // Format time into a nice string
+        // Format time into a clean and descriptive string
         var eventTime = "Unknown Time"
         if event.isAllDay {
             eventTime = "All Day"
@@ -172,6 +172,7 @@ class ViewController: UIViewController {
             let eventEndH = Calendar.current.component(.hour, from: event.endDate)
             let eventEndM = Calendar.current.component(.minute, from: event.endDate)
 
+            // Form "HH:MM to HH:MM"
             eventTime = String(format: "%02d:%02d to %02d:%02d", eventStartH, eventStartM, eventEndH, eventEndM)
 
         }
