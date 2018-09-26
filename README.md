@@ -1,15 +1,15 @@
 # GlanceCal
-A very simple iOS today view widget for calendar events
+A very simple iOS Today View widget for calendar events
 
 ----
 
 ### The Problem
 
-The default iOS Calendar Today View Widgets don't make much sense to me. At a glance I only really need to know about events that are today or tomorrow.
+The default iOS Calendar Today View widgets don't make much sense to me. At a glance I only really need to know about events that are today or tomorrow.
 
 ### The Solution
 
-Make a really quick and simple Today View Widget app that presents all the events scheduled for later today and tomorrow.
+Make a really quick and simple Today View widget app that presents all the events scheduled for later today and tomorrow.
 
 ### Issues
 
