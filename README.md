@@ -1,2 +1,2 @@
 # GlanceCal
-Very simple iOS today view widget for calendar events
+A very simple iOS today view widget for calendar events
