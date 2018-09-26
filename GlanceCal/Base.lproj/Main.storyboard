@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,13 +12,49 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="GlanceCal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GlanceCal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dnc-l0-UUc">
+                                <rect key="frame" x="0.0" y="36" width="320" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calendar Access is Required" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7EI-8E-dQt">
+                                <rect key="frame" x="0.0" y="124" width="320" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8X7-jU-WEo">
+                                <rect key="frame" x="0.0" y="153" width="320" height="30"/>
+                                <state key="normal" title="Go to Settings"/>
+                                <connections>
+                                    <action selector="goToSettings:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fhc-dY-0yy"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="7EI-8E-dQt" firstAttribute="top" secondItem="dnc-l0-UUc" secondAttribute="bottom" constant="64" id="3U8-XN-gtL"/>
+                            <constraint firstItem="7EI-8E-dQt" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="6Jj-bu-UGC"/>
+                            <constraint firstItem="8X7-jU-WEo" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="87K-dr-ah8"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dnc-l0-UUc" secondAttribute="trailing" id="JZs-Bo-Rdg"/>
+                            <constraint firstItem="8X7-jU-WEo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="U8K-MT-f7D"/>
+                            <constraint firstItem="8X7-jU-WEo" firstAttribute="top" secondItem="7EI-8E-dQt" secondAttribute="bottom" constant="8" id="UqR-ou-DNs"/>
+                            <constraint firstItem="dnc-l0-UUc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="jeJ-XB-nLT"/>
+                            <constraint firstItem="dnc-l0-UUc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="ms2-LL-Bev"/>
+                            <constraint firstItem="7EI-8E-dQt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="psJ-OC-TJR"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="goToSettings" destination="8X7-jU-WEo" id="8gj-19-ojI"/>
+                        <outlet property="requestLabel" destination="7EI-8E-dQt" id="0l0-Pd-f5D"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
