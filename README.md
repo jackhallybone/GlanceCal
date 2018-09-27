@@ -19,5 +19,9 @@ I don't know anything about Swift, iOS development or Xcode. I like learning by 
 
 ### TODO:
 - Display events in separate "Today" and "Tomorrow" widgets.
+    - Widget size/resize is not correct
+    - Calendar colour on the left
+    - Fetch data within host app or within widget?
+    - Duplicate today widget to a tomorrow widget
 - Consider adding reminders due today and tomorrow (and overdue?).
 - Alarms set in clock app would also be good but doesn't seem possible.
