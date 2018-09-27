@@ -21,18 +21,13 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         
         self.preferredContentSize = CGSize(width: 320, height: CGFloat(data.count)*121 + 44)
         
-        if #available(iOSApplicationExtension 10.0, *) {
-            self.extensionContext?.widgetLargestAvailableDisplayMode = .expanded
-        } else {
-            // Fallback on earlier versions
-        }
+        self.extensionContext?.widgetLargestAvailableDisplayMode = .expanded
         
         loadData()
     }
     
-    // For iOS 10
-    @available(iOS 10.0, *)
-    @available(iOSApplicationExtension 10.0, *)
+    // FIXME: "See More" button expands but not to the size of the content...
+
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
         self.preferredContentSize = (activeDisplayMode == .expanded) ? CGSize(width: 320, height: CGFloat(data.count)*121 + 44) : CGSize(width: maxSize.width, height: 110)
     }
@@ -50,33 +45,34 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     }
     
     func loadData() {
+        
         data.removeAll()
         
-        for i in 1...10 {
+        for i in 1...6 {
             let eventData = [
-                "title": String(format: "Title %d", i),
-                "time": Date(),
-                "location": "",
+                "title": String(format: "Event Title (%d)", i),
+                "time": "11:00 to 12:00",
+                "location": "123, Any Road, Any Town, 123 XYZ",
                 "color": "RED"
                 ] as [String : Any]
             data.append(eventData)
         }
-        
-        print("created", data.count, "events")
-        
-        //            self.tableView.reloadData()
-        
-        print("after reload call")
+
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("Table sees", data.count, "events")
         return data.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "eventItem", for: indexPath)
-        cell.textLabel?.text = data[indexPath.row]["title"] as! String?
+
+        // Optionals?!?
+        let subtitle = String(format: "%@  |  %@", (data[indexPath.row]["time"] as? String)!, (data[indexPath.row]["location"] as? String)!)
+        
+        cell.textLabel?.text = data[indexPath.row]["title"] as? String
+        cell.detailTextLabel?.text = subtitle
+
         return cell
     }
     
