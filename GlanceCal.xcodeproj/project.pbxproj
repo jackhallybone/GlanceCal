@@ -11,6 +11,10 @@
 		28BB54D7215D2E9400DDE1B5 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BB54D6215D2E9400DDE1B5 /* TodayViewController.swift */; };
 		28BB54DA215D2E9400DDE1B5 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28BB54D8215D2E9400DDE1B5 /* MainInterface.storyboard */; };
 		28BB54DE215D2E9400DDE1B5 /* Today Glance.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 28BB54D1215D2E9400DDE1B5 /* Today Glance.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		28DE7959215E33C600CAF50C /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28BB54D3215D2E9400DDE1B5 /* NotificationCenter.framework */; };
+		28DE795C215E33C600CAF50C /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DE795B215E33C600CAF50C /* TodayViewController.swift */; };
+		28DE795F215E33C600CAF50C /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28DE795D215E33C600CAF50C /* MainInterface.storyboard */; };
+		28DE7963215E33C600CAF50C /* Tomorrow Glance.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 28DE7958215E33C600CAF50C /* Tomorrow Glance.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		28F2E61C215BDD8200835F17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F2E61B215BDD8200835F17 /* AppDelegate.swift */; };
 		28F2E61E215BDD8200835F17 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F2E61D215BDD8200835F17 /* ViewController.swift */; };
 		28F2E621215BDD8200835F17 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28F2E61F215BDD8200835F17 /* Main.storyboard */; };
@@ -26,6 +30,13 @@
 			remoteGlobalIDString = 28BB54D0215D2E9400DDE1B5;
 			remoteInfo = "Today Glance";
 		};
+		28DE7961215E33C600CAF50C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 28F2E610215BDD8100835F17 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 28DE7957215E33C600CAF50C;
+			remoteInfo = "Tomorrow Glance";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -35,6 +46,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				28DE7963215E33C600CAF50C /* Tomorrow Glance.appex in Embed App Extensions */,
 				28BB54DE215D2E9400DDE1B5 /* Today Glance.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
@@ -48,6 +60,10 @@
 		28BB54D6215D2E9400DDE1B5 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		28BB54D9215D2E9400DDE1B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		28BB54DB215D2E9400DDE1B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		28DE7958215E33C600CAF50C /* Tomorrow Glance.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Tomorrow Glance.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		28DE795B215E33C600CAF50C /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		28DE795E215E33C600CAF50C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		28DE7960215E33C600CAF50C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28F2E618215BDD8200835F17 /* GlanceCal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GlanceCal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28F2E61B215BDD8200835F17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		28F2E61D215BDD8200835F17 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +79,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				28BB54D4215D2E9400DDE1B5 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28DE7955215E33C600CAF50C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28DE7959215E33C600CAF50C /* NotificationCenter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,11 +118,22 @@
 			path = "Today Glance";
 			sourceTree = "<group>";
 		};
+		28DE795A215E33C600CAF50C /* Tomorrow Glance */ = {
+			isa = PBXGroup;
+			children = (
+				28DE795B215E33C600CAF50C /* TodayViewController.swift */,
+				28DE795D215E33C600CAF50C /* MainInterface.storyboard */,
+				28DE7960215E33C600CAF50C /* Info.plist */,
+			);
+			path = "Tomorrow Glance";
+			sourceTree = "<group>";
+		};
 		28F2E60F215BDD8100835F17 = {
 			isa = PBXGroup;
 			children = (
 				28F2E61A215BDD8200835F17 /* GlanceCal */,
 				28BB54D5215D2E9400DDE1B5 /* Today Glance */,
+				28DE795A215E33C600CAF50C /* Tomorrow Glance */,
 				28BB54D2215D2E9400DDE1B5 /* Frameworks */,
 				28F2E619215BDD8200835F17 /* Products */,
 			);
@@ -109,6 +144,7 @@
 			children = (
 				28F2E618215BDD8200835F17 /* GlanceCal.app */,
 				28BB54D1215D2E9400DDE1B5 /* Today Glance.appex */,
+				28DE7958215E33C600CAF50C /* Tomorrow Glance.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -146,6 +182,23 @@
 			productReference = 28BB54D1215D2E9400DDE1B5 /* Today Glance.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		28DE7957215E33C600CAF50C /* Tomorrow Glance */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 28DE7966215E33C600CAF50C /* Build configuration list for PBXNativeTarget "Tomorrow Glance" */;
+			buildPhases = (
+				28DE7954215E33C600CAF50C /* Sources */,
+				28DE7955215E33C600CAF50C /* Frameworks */,
+				28DE7956215E33C600CAF50C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Tomorrow Glance";
+			productName = "Tomorrow Glance";
+			productReference = 28DE7958215E33C600CAF50C /* Tomorrow Glance.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		28F2E617215BDD8100835F17 /* GlanceCal */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 28F2E62A215BDD8300835F17 /* Build configuration list for PBXNativeTarget "GlanceCal" */;
@@ -159,6 +212,7 @@
 			);
 			dependencies = (
 				28BB54DD215D2E9400DDE1B5 /* PBXTargetDependency */,
+				28DE7962215E33C600CAF50C /* PBXTargetDependency */,
 			);
 			name = GlanceCal;
 			productName = GlanceCal;
@@ -175,6 +229,9 @@
 				LastUpgradeCheck = 1000;
 				TargetAttributes = {
 					28BB54D0215D2E9400DDE1B5 = {
+						CreatedOnToolsVersion = 10.0;
+					};
+					28DE7957215E33C600CAF50C = {
 						CreatedOnToolsVersion = 10.0;
 					};
 					28F2E617215BDD8100835F17 = {
@@ -197,6 +254,7 @@
 			targets = (
 				28F2E617215BDD8100835F17 /* GlanceCal */,
 				28BB54D0215D2E9400DDE1B5 /* Today Glance */,
+				28DE7957215E33C600CAF50C /* Tomorrow Glance */,
 			);
 		};
 /* End PBXProject section */
@@ -207,6 +265,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				28BB54DA215D2E9400DDE1B5 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28DE7956215E33C600CAF50C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28DE795F215E33C600CAF50C /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,6 +297,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		28DE7954215E33C600CAF50C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28DE795C215E33C600CAF50C /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		28F2E614215BDD8100835F17 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -248,6 +322,11 @@
 			target = 28BB54D0215D2E9400DDE1B5 /* Today Glance */;
 			targetProxy = 28BB54DC215D2E9400DDE1B5 /* PBXContainerItemProxy */;
 		};
+		28DE7962215E33C600CAF50C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 28DE7957215E33C600CAF50C /* Tomorrow Glance */;
+			targetProxy = 28DE7961215E33C600CAF50C /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -255,6 +334,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				28BB54D9215D2E9400DDE1B5 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+		28DE795D215E33C600CAF50C /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				28DE795E215E33C600CAF50C /* Base */,
 			);
 			name = MainInterface.storyboard;
 			sourceTree = "<group>";
@@ -307,6 +394,42 @@
 					"@executable_path/../../Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.GlanceCal.Today-Glance";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		28DE7964215E33C600CAF50C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Tomorrow Glance/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.GlanceCal.Tomorrow-Glance";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		28DE7965215E33C600CAF50C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Tomorrow Glance/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.example.GlanceCal.Tomorrow-Glance";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
@@ -474,6 +597,15 @@
 			buildConfigurations = (
 				28BB54DF215D2E9400DDE1B5 /* Debug */,
 				28BB54E0215D2E9400DDE1B5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		28DE7966215E33C600CAF50C /* Build configuration list for PBXNativeTarget "Tomorrow Glance" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				28DE7964215E33C600CAF50C /* Debug */,
+				28DE7965215E33C600CAF50C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
