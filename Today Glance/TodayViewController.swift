@@ -12,6 +12,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     
     // Note: Also connected Table View outlets to Today View Controller
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var noEventsLabel: UILabel!
     
     fileprivate var data: [Dictionary<String, Any>] = []
 
@@ -62,9 +63,18 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
                 ] as [String : Any]
             data.append(eventData)
         }
+        
+        if data.count == 0{
+            noEvents()
+        }
 
     }
 
+    func noEvents() {
+        tableView.alpha = 0
+        noEventsLabel.alpha = 0.5
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count
     }

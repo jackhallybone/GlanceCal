@@ -51,10 +51,20 @@
                                     <outlet property="delegate" destination="M4Y-Lb-cyx" id="JOy-41-Z1t"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Events Scheduled" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sGC-Ca-eej">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="37"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="ssy-KU-ocm" firstAttribute="bottom" secondItem="sGC-Ca-eej" secondAttribute="bottom" id="2p9-bZ-J0F"/>
                             <constraint firstItem="ssy-KU-ocm" firstAttribute="trailing" secondItem="mSB-hw-kym" secondAttribute="trailing" id="8NS-Pd-hcX"/>
+                            <constraint firstItem="ssy-KU-ocm" firstAttribute="trailing" secondItem="sGC-Ca-eej" secondAttribute="trailing" id="HlO-kQ-JjU"/>
                             <constraint firstItem="mSB-hw-kym" firstAttribute="top" secondItem="S3S-Oj-5AN" secondAttribute="top" id="Ln0-oY-5Rc"/>
+                            <constraint firstItem="sGC-Ca-eej" firstAttribute="top" secondItem="ssy-KU-ocm" secondAttribute="top" id="OMS-JE-zeB"/>
+                            <constraint firstItem="sGC-Ca-eej" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" id="RW3-df-jPX"/>
                             <constraint firstItem="mSB-hw-kym" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leading" id="e1c-Ap-JDy"/>
                             <constraint firstAttribute="bottom" secondItem="mSB-hw-kym" secondAttribute="bottom" id="i2y-qX-Uko"/>
                         </constraints>
@@ -64,6 +74,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="37"/>
                     <connections>
+                        <outlet property="noEventsLabel" destination="sGC-Ca-eej" id="gCG-TP-96W"/>
                         <outlet property="tableView" destination="mSB-hw-kym" id="1nC-yn-H4x"/>
                     </connections>
                 </viewController>
