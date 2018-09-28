@@ -17,7 +17,7 @@ Make two really quick and simple iOS Today View extensions/widgets that presents
 
 ### Issues
 
-I don't know anything about Swift, iOS development or Xcode. I like learning by trial and error so this project will probably contain a lot of blinding errors that I don't know about yet (but hopefully none that I do know about...).
+*I don't yet know anything about Swift, iOS development or Xcode*. I like learning by trial and error so this project will probably contain a lot of blinding errors that I don't know about yet (but hopefully none that I do know about...).
 
 ----
 
