@@ -31,5 +31,6 @@ I don't know anything about Swift, iOS development or Xcode. I like learning by 
 - Link to the event in the calendar app when pressed in extension?
 
 ### To Consider:
+- Head the extension view with the day of the week and date of the day shown
 - Show reminders due today and tomorrow (and any overdue?)
 - Show alarms set in the clock app (not possible to access this data)
