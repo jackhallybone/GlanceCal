@@ -1,15 +1,19 @@
 # GlanceCal
-A very simple iOS Today View widget for calendar events
+Very simple iOS Today View extensions/widgets for calendar events scheduled today and tomorrow
+
+<!-- ![Example screenshots](https://raw.githubusercontent.com/jackhallybone/GlanceCal/master/Screenshots.png "Example screenshots") -->
+
+<img src="https://raw.githubusercontent.com/jackhallybone/GlanceCal/master/Screenshots.png"  width='500' alt="Example screenshots">
 
 ----
 
 ### The Problem
 
-The default iOS Calendar Today View widgets don't make much sense to me. At a glance I only really need to know about events that are today or tomorrow.
+The default iOS Calendar Today View widgets don't make much sense to me. At a glance I only really need to know about events that are scheduled for today and tomorrow.
 
 ### The Solution
 
-Make a really quick and simple Today View widget app that presents all the events scheduled for later today and tomorrow.
+Make two really quick and simple iOS Today View extensions/widgets that presents all the events scheduled for later today and tomorrow.
 
 ### Issues
 
@@ -17,11 +21,15 @@ I don't know anything about Swift, iOS development or Xcode. I like learning by 
 
 ----
 
-### TODO:
-- Display events in separate "Today" and "Tomorrow" widgets.
-    - Widget size/resize is not correct
-    - Calendar colour on the left
-    - Fetch data within host app or within widget?
-    - Duplicate today widget to a tomorrow widget
-- Consider adding reminders due today and tomorrow (and overdue?).
-- Alarms set in clock app would also be good but doesn't seem possible.
+### To Do:
+- Add framework(?) to abstract eventkit code from each extension
+- Hide "Show More" button when not required
+- Extension resize does not match data/table size
+- Add calendar colour on the left the default calendar app/extension
+- Handle 12h and 24h display options
+- Order the all day events as they are in the calendar app?
+- Link to the event in the calendar app when pressed in extension?
+
+### To Consider:
+- Show reminders due today and tomorrow (and any overdue?)
+- Show alarms set in the clock app (not possible to access this data)
