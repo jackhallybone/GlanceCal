@@ -22,6 +22,7 @@ Make two really quick and simple iOS Today View extensions/widgets that presents
 ----
 
 ### To Do:
+- What happens in extensions if calendar access is denied?
 - Add framework(?) to abstract eventkit code from each extension
 - Hide "Show More" button when not required
 - Extension resize does not match data/table size
@@ -29,6 +30,7 @@ Make two really quick and simple iOS Today View extensions/widgets that presents
 - Handle 12h and 24h display options
 - Order the all day events as they are in the calendar app?
 - Link to the event in the calendar app when pressed in extension?
+- Better documentation once I really understand all my optional unwrapping etc
 
 ### To Consider:
 - Head the extension view with the day of the week and date of the day shown

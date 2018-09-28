@@ -10,29 +10,25 @@ import EventKit
 
 class ViewController: UIViewController {
 
-
     @IBOutlet weak var requestLabel: UILabel!
     @IBOutlet weak var goToSettings: UIButton!
 
-
     var eventStore = EKEventStore()
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+
+        // Begin app process by querying Calendar access privacy access
         evaluateEventKitAccess()
     }
-    
-    
 
-    
     func evaluateEventKitAccess() {
-        
-        // NOTE: Is the the best way to do it? iOS only allows one access request anyway?
-        
+
+        // NOTE: Is the the best way to do this? iOS only allows one access request anyway?
+
         let authorizationStatus = EKEventStore.authorizationStatus(for: .event)
-        
+
         switch authorizationStatus {
             case .authorized:
                 accessGranted()
@@ -44,64 +40,67 @@ class ViewController: UIViewController {
                 accessDenied()
             // NOTE: Do I need a default? (see style guide?)
         }
-        
     }
 
-    
     func requestEventKitAccess() {
 
+        // Fire (async) calendar privacy access request
         eventStore.requestAccess(to: EKEntityType.event, completion: {
             (accessGrantedCalendar: Bool, error: Error?) in
 
+            // Return to main thread and perform action based on response
             if accessGrantedCalendar {
-                DispatchQueue.main.async { // Must return to main thread
+                DispatchQueue.main.async {
                     self.accessGranted()
                 }
             } else {
-                DispatchQueue.main.async { // Must return to main thread
+                DispatchQueue.main.async {
                     self.accessDenied()
                 }
             }
         })
     }
 
-
     func accessDenied() {
         print("Calendar Access Denied")
+
+        // Display prompt for user to change their settings to allow access
         requestLabel.alpha = 1
         goToSettings.alpha = 1
     }
 
-
     @IBAction func goToSettings(_ sender: Any) {
+        // Open system app settings to allow user to grant calendar access
         if let openSettingsUrl = URL(string: UIApplication.openSettingsURLString) {
             UIApplication.shared.open(openSettingsUrl, options: [:], completionHandler: nil)
         }
     }
 
-
     func accessGranted() {
         print("Calendar Access Granted")
+
+        // Display prompt for user to use the extensions not the host app itself
         requestLabel.text = "See Today View Widget"
         requestLabel.alpha = 1
 
-        // Begin...
+        // NOTE: For now, get event data and print to console for testing
         printDataForDay(daysFromToday: 0) // today
         printDataForDay(daysFromToday: 1) // tomorrow
     }
 
-
     func printDataForDay(daysFromToday: Int) {
 
+        // Fetch all events on target day
         let (date, events) = fetchEventData(daysFromToday: daysFromToday)
 
         print("TARGET DAY:", date)
 
         if events.count == 0 {
+            // If no events, display this
             print("No Events Scheduled")
         } else {
+            // Else, format and display event list
             print(events.count, "Event(s) Scheduled:")
-
             for event in events {
                 var eventData = formatEventData(event: event)
                 print("\t", eventData["title"]!, "(", eventData["time"]!, ")") // loc, color
@@ -109,6 +108,7 @@ class ViewController: UIViewController {
         }
     }
 
+// --------------------------------------------------------
 
     func fetchEventData(daysFromToday: Int) -> (Date, Array<EKEvent>) {
 
@@ -161,7 +161,7 @@ class ViewController: UIViewController {
         let eventLocation = event.location ?? "Unknown Location"
         let eventCalCol = UIColor.init(cgColor: event.calendar.cgColor)
 
-        // Format time into a clean and descriptive string
+        // Format time into a clean and descriptive string: "All Day" or "HH:MM to HH:MM"
         var eventTime = "Unknown Time"
         if event.isAllDay {
             eventTime = "All Day"
@@ -177,7 +177,7 @@ class ViewController: UIViewController {
 
         }
 
-        // Build a dictonary of event data
+        // Build a dictionary of event data
         let eventData = [
             "title": eventTitle,
             "time": eventTime,
@@ -188,6 +188,5 @@ class ViewController: UIViewController {
         return eventData
 
     }
-
 
 }
