@@ -19,17 +19,22 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         super.viewDidLoad()
         // Do any additional setup after loading the view from its nib.
         
-        self.preferredContentSize = CGSize(width: 320, height: CGFloat(data.count)*121 + 44)
-        
         self.extensionContext?.widgetLargestAvailableDisplayMode = .expanded
         
         loadData()
     }
     
     // FIXME: "See More" button expands but not to the size of the content...
-
-    func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
-        self.preferredContentSize = (activeDisplayMode == .expanded) ? CGSize(width: 320, height: CGFloat(data.count)*121 + 44) : CGSize(width: maxSize.width, height: 110)
+    func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize)
+    {
+        if activeDisplayMode == .expanded
+        {
+            preferredContentSize = CGSize(width: 0.0, height: 60 * CGFloat(data.count))
+        }
+        else
+        {
+            preferredContentSize = maxSize
+        }
     }
         
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
@@ -48,7 +53,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         
         data.removeAll()
         
-        for i in 1...6 {
+        for i in 1...5 {
             let eventData = [
                 "title": String(format: "Event Title (%d)", i),
                 "time": "11:00 to 12:00",
