@@ -14,11 +14,11 @@
             <objects>
                 <viewController id="M4Y-Lb-cyx" customClass="TodayViewController" customModule="Today_Glance" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" simulatedAppContext="notificationCenter" id="S3S-Oj-5AN">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="37"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mSB-hw-kym">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="37"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="eventItem" textLabel="yzS-Ld-qSa" detailTextLabel="v7h-2c-aZU" style="IBUITableViewCellStyleSubtitle" id="C0Y-fa-xcv">
@@ -51,30 +51,30 @@
                                     <outlet property="delegate" destination="M4Y-Lb-cyx" id="JOy-41-Z1t"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Events Scheduled" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sGC-Ca-eej">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="37"/>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Events Loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KMU-Wm-YNs">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="ssy-KU-ocm" firstAttribute="bottom" secondItem="sGC-Ca-eej" secondAttribute="bottom" id="2p9-bZ-J0F"/>
                             <constraint firstItem="ssy-KU-ocm" firstAttribute="trailing" secondItem="mSB-hw-kym" secondAttribute="trailing" id="8NS-Pd-hcX"/>
-                            <constraint firstItem="ssy-KU-ocm" firstAttribute="trailing" secondItem="sGC-Ca-eej" secondAttribute="trailing" id="HlO-kQ-JjU"/>
                             <constraint firstItem="mSB-hw-kym" firstAttribute="top" secondItem="S3S-Oj-5AN" secondAttribute="top" id="Ln0-oY-5Rc"/>
-                            <constraint firstItem="sGC-Ca-eej" firstAttribute="top" secondItem="ssy-KU-ocm" secondAttribute="top" id="OMS-JE-zeB"/>
-                            <constraint firstItem="sGC-Ca-eej" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" id="RW3-df-jPX"/>
+                            <constraint firstItem="KMU-Wm-YNs" firstAttribute="leading" secondItem="ssy-KU-ocm" secondAttribute="leading" id="WO6-oB-JG3"/>
+                            <constraint firstItem="ssy-KU-ocm" firstAttribute="bottom" secondItem="KMU-Wm-YNs" secondAttribute="bottom" id="WlU-j5-uPL"/>
+                            <constraint firstItem="KMU-Wm-YNs" firstAttribute="top" secondItem="ssy-KU-ocm" secondAttribute="top" id="dc2-5b-PQr"/>
                             <constraint firstItem="mSB-hw-kym" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leading" id="e1c-Ap-JDy"/>
                             <constraint firstAttribute="bottom" secondItem="mSB-hw-kym" secondAttribute="bottom" id="i2y-qX-Uko"/>
+                            <constraint firstItem="ssy-KU-ocm" firstAttribute="trailing" secondItem="KMU-Wm-YNs" secondAttribute="trailing" id="qob-eC-HH1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ssy-KU-ocm"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="37"/>
+                    <size key="freeformSize" width="320" height="100"/>
                     <connections>
-                        <outlet property="noEventsLabel" destination="sGC-Ca-eej" id="gCG-TP-96W"/>
+                        <outlet property="displayLabel" destination="KMU-Wm-YNs" id="FmT-EJ-8AX"/>
                         <outlet property="tableView" destination="mSB-hw-kym" id="1nC-yn-H4x"/>
                     </connections>
                 </viewController>

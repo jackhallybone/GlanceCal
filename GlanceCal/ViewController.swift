@@ -10,8 +10,8 @@ import EventKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var requestLabel: UILabel!
-    @IBOutlet weak var goToSettings: UIButton!
+    @IBOutlet weak var displayLabel: UILabel!
+    @IBOutlet weak var goToSettingsButton: UIButton!
 
     var eventStore = EKEventStore()
 
@@ -25,11 +25,9 @@ class ViewController: UIViewController {
 
     func evaluateEventKitAccess() {
 
-        // NOTE: Is the the best way to do this? iOS only allows one access request anyway?
+        let status = EKEventStore.authorizationStatus(for: .event)
 
-        let authorizationStatus = EKEventStore.authorizationStatus(for: .event)
-
-        switch authorizationStatus {
+        switch status {
             case .authorized:
                 accessGranted()
             case .notDetermined:
@@ -38,7 +36,6 @@ class ViewController: UIViewController {
                 accessDenied()
             case .denied:
                 accessDenied()
-            // NOTE: Do I need a default? (see style guide?)
         }
     }
 
@@ -65,11 +62,12 @@ class ViewController: UIViewController {
         print("Calendar Access Denied")
 
         // Display prompt for user to change their settings to allow access
-        requestLabel.alpha = 1
-        goToSettings.alpha = 1
+        displayLabel.text = "Calendar Access is Required"
+        displayLabel.alpha = 1
+        goToSettingsButton.alpha = 1
     }
 
-    @IBAction func goToSettings(_ sender: Any) {
+    @IBAction func goToSettingsButton(_ sender: Any) {
         // Open system app settings to allow user to grant calendar access
         if let openSettingsUrl = URL(string: UIApplication.openSettingsURLString) {
             UIApplication.shared.open(openSettingsUrl, options: [:], completionHandler: nil)
@@ -80,113 +78,9 @@ class ViewController: UIViewController {
         print("Calendar Access Granted")
 
         // Display prompt for user to use the extensions not the host app itself
-        requestLabel.text = "See Today View Widget"
-        requestLabel.alpha = 1
-
-        // NOTE: For now, get event data and print to console for testing
-        printDataForDay(daysFromToday: 0) // today
-        printDataForDay(daysFromToday: 1) // tomorrow
-    }
-
-    func printDataForDay(daysFromToday: Int) {
-
-        // Fetch all events on target day
-        let (date, events) = fetchEventData(daysFromToday: daysFromToday)
-
-        print("TARGET DAY:", date)
-
-        if events.count == 0 {
-            // If no events, display this
-            print("No Events Scheduled")
-        } else {
-            // Else, format and display event list
-            print(events.count, "Event(s) Scheduled:")
-            for event in events {
-                var eventData = formatEventData(event: event)
-                print("\t", eventData["title"]!, "(", eventData["time"]!, ")") // loc, color
-            }
-        }
-    }
-
-// --------------------------------------------------------
-
-    func fetchEventData(daysFromToday: Int) -> (Date, Array<EKEvent>) {
-
-        // Get the current datetime and calendar
-        let date = Date()
-        let calendar = Calendar.current
-
-        // Create a starting date component at the current time on the target day
-        var startDateComponents = DateComponents()
-        startDateComponents.day = daysFromToday
-        var startDate: Date? = nil
-        startDate = calendar.date(byAdding: startDateComponents, to: date, wrappingComponents: false)
-
-        // If target date is not today, starting datetime should be the start of the day
-        let startOfTargetDay = Calendar.current.startOfDay(for: startDate!)
-        if !(daysFromToday == 0) {
-            startDate = startOfTargetDay
-        }
-
-        // Create an ending datetime component at the end of the target day
-        var endDateComponents = DateComponents()
-        endDateComponents.day = daysFromToday + 1 // Add a day to the target day then...
-        endDateComponents.second = -1 // ...remove one second to return to that day
-        let endDate = calendar.date(byAdding: endDateComponents, to: startOfTargetDay, wrappingComponents: false)
-
-        // Create a predicate with the required start and end datetimes, for all calendars
-        var predicateEvent: NSPredicate? = nil
-        if let sDate = startDate, let eDate = endDate {
-            predicateEvent = eventStore.predicateForEvents(withStart: sDate, end: eDate, calendars: nil)
-        }
-
-        // Fetch all events that match this predicate
-        var events: [EKEvent]? = nil
-        if let aPredicate = predicateEvent {
-            events = eventStore.events(matching: aPredicate)
-        }
-
-        // Return the actual start date and the list of events
-        return (startDate!, events!)
-
-    }
-
-
-    func formatEventData(event: EKEvent) -> Dictionary<String, Any> {
-
-        // NOTE: Strange things with optionals?
-
-        // Extract the event data we are interested in
-        let eventTitle = event.title ?? "Unnamed Event"
-        let eventLocation = event.location ?? "Unknown Location"
-        let eventCalCol = UIColor.init(cgColor: event.calendar.cgColor)
-
-        // Format time into a clean and descriptive string: "All Day" or "HH:MM to HH:MM"
-        var eventTime = "Unknown Time"
-        if event.isAllDay {
-            eventTime = "All Day"
-        } else {
-            let eventStartH = Calendar.current.component(.hour, from: event.startDate)
-            let eventStartM = Calendar.current.component(.minute, from: event.startDate)
-
-            let eventEndH = Calendar.current.component(.hour, from: event.endDate)
-            let eventEndM = Calendar.current.component(.minute, from: event.endDate)
-
-            // Form "HH:MM to HH:MM"
-            eventTime = String(format: "%02d:%02d to %02d:%02d", eventStartH, eventStartM, eventEndH, eventEndM)
-
-        }
-
-        // Build a dictionary of event data
-        let eventData = [
-            "title": eventTitle,
-            "time": eventTime,
-            "location": eventLocation,
-            "color": eventCalCol
-            ] as [String : Any]
-
-        return eventData
-
+        displayLabel.text = "See Today View Widget(s)"
+        displayLabel.alpha = 1
+        goToSettingsButton.alpha = 0
     }
 
 }

@@ -23,37 +23,37 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calendar Access is Required" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7EI-8E-dQt">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Requesting Calendar Access..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="60y-RG-dKP">
                                 <rect key="frame" x="0.0" y="124" width="320" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8X7-jU-WEo">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JbM-kL-fWT">
                                 <rect key="frame" x="0.0" y="153" width="320" height="30"/>
                                 <state key="normal" title="Go to Settings"/>
                                 <connections>
-                                    <action selector="goToSettings:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fhc-dY-0yy"/>
+                                    <action selector="goToSettingsButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5cQ-ls-2sd"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="7EI-8E-dQt" firstAttribute="top" secondItem="dnc-l0-UUc" secondAttribute="bottom" constant="64" id="3U8-XN-gtL"/>
-                            <constraint firstItem="7EI-8E-dQt" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="6Jj-bu-UGC"/>
-                            <constraint firstItem="8X7-jU-WEo" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="87K-dr-ah8"/>
+                            <constraint firstItem="JbM-kL-fWT" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Al7-Sd-E6d"/>
+                            <constraint firstItem="60y-RG-dKP" firstAttribute="top" secondItem="dnc-l0-UUc" secondAttribute="bottom" constant="64" id="GGv-Vx-Em5"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dnc-l0-UUc" secondAttribute="trailing" id="JZs-Bo-Rdg"/>
-                            <constraint firstItem="8X7-jU-WEo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="U8K-MT-f7D"/>
-                            <constraint firstItem="8X7-jU-WEo" firstAttribute="top" secondItem="7EI-8E-dQt" secondAttribute="bottom" constant="8" id="UqR-ou-DNs"/>
+                            <constraint firstItem="JbM-kL-fWT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="KEb-CA-t3x"/>
+                            <constraint firstItem="60y-RG-dKP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="SMr-As-me5"/>
+                            <constraint firstItem="60y-RG-dKP" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="iTe-Pb-aHK"/>
                             <constraint firstItem="dnc-l0-UUc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="jeJ-XB-nLT"/>
                             <constraint firstItem="dnc-l0-UUc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="ms2-LL-Bev"/>
-                            <constraint firstItem="7EI-8E-dQt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="psJ-OC-TJR"/>
+                            <constraint firstItem="JbM-kL-fWT" firstAttribute="top" secondItem="60y-RG-dKP" secondAttribute="bottom" constant="8" id="wsv-G9-KaL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="goToSettings" destination="8X7-jU-WEo" id="8gj-19-ojI"/>
-                        <outlet property="requestLabel" destination="7EI-8E-dQt" id="0l0-Pd-f5D"/>
+                        <outlet property="displayLabel" destination="60y-RG-dKP" id="B7i-W8-prQ"/>
+                        <outlet property="goToSettingsButton" destination="JbM-kL-fWT" id="Ct4-kE-PQq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

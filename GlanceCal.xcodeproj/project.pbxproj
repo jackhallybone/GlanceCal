@@ -15,6 +15,9 @@
 		28DE795C215E33C600CAF50C /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DE795B215E33C600CAF50C /* TodayViewController.swift */; };
 		28DE795F215E33C600CAF50C /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28DE795D215E33C600CAF50C /* MainInterface.storyboard */; };
 		28DE7963215E33C600CAF50C /* Tomorrow Glance.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 28DE7958215E33C600CAF50C /* Tomorrow Glance.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		28EA491621651A1A00457564 /* ManageEventData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EA491521651A1A00457564 /* ManageEventData.swift */; };
+		28EA491721651A1A00457564 /* ManageEventData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EA491521651A1A00457564 /* ManageEventData.swift */; };
+		28EA491821651A1A00457564 /* ManageEventData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EA491521651A1A00457564 /* ManageEventData.swift */; };
 		28F2E61C215BDD8200835F17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F2E61B215BDD8200835F17 /* AppDelegate.swift */; };
 		28F2E61E215BDD8200835F17 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F2E61D215BDD8200835F17 /* ViewController.swift */; };
 		28F2E621215BDD8200835F17 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28F2E61F215BDD8200835F17 /* Main.storyboard */; };
@@ -64,6 +67,7 @@
 		28DE795B215E33C600CAF50C /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		28DE795E215E33C600CAF50C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		28DE7960215E33C600CAF50C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		28EA491521651A1A00457564 /* ManageEventData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageEventData.swift; sourceTree = "<group>"; };
 		28F2E618215BDD8200835F17 /* GlanceCal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GlanceCal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28F2E61B215BDD8200835F17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		28F2E61D215BDD8200835F17 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -131,6 +135,7 @@
 		28F2E60F215BDD8100835F17 = {
 			isa = PBXGroup;
 			children = (
+				28EA491521651A1A00457564 /* ManageEventData.swift */,
 				28F2E61A215BDD8200835F17 /* GlanceCal */,
 				28BB54D5215D2E9400DDE1B5 /* Today Glance */,
 				28DE795A215E33C600CAF50C /* Tomorrow Glance */,
@@ -294,6 +299,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				28BB54D7215D2E9400DDE1B5 /* TodayViewController.swift in Sources */,
+				28EA491721651A1A00457564 /* ManageEventData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +308,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				28DE795C215E33C600CAF50C /* TodayViewController.swift in Sources */,
+				28EA491821651A1A00457564 /* ManageEventData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,6 +316,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28EA491621651A1A00457564 /* ManageEventData.swift in Sources */,
 				28F2E61E215BDD8200835F17 /* ViewController.swift in Sources */,
 				28F2E61C215BDD8200835F17 /* AppDelegate.swift in Sources */,
 			);
