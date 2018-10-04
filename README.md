@@ -1,5 +1,5 @@
 # GlanceCal
-Very simple iOS Today View extensions/widgets for calendar events scheduled today and tomorrow
+Simple iOS Today View extensions/widgets for calendar events scheduled today and tomorrow
 
 <!-- ![Example screenshots](https://raw.githubusercontent.com/jackhallybone/GlanceCal/master/Screenshots.png "Example screenshots") -->
 
@@ -13,7 +13,7 @@ The default iOS Calendar Today View widgets don't make much sense to me. At a gl
 
 ### The Solution
 
-Make two really quick and simple iOS Today View extensions/widgets that presents all the events scheduled for later today and tomorrow.
+Make two quick and simple iOS Today View extensions/widgets that presents all the events scheduled for later today and tomorrow.
 
 ### Issues
 
