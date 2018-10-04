@@ -22,8 +22,6 @@ Make two really quick and simple iOS Today View extensions/widgets that presents
 ----
 
 ### To Do:
-- What happens in extensions if calendar access is denied?
-- Add framework(?) to abstract eventkit code from each extension
 - Hide "Show More" button when not required
 - Extension resize does not match data/table size
 - Add calendar colour on the left the default calendar app/extension
@@ -33,6 +31,7 @@ Make two really quick and simple iOS Today View extensions/widgets that presents
 - Better documentation once I really understand all my optional unwrapping etc
 
 ### To Consider:
+- Should I be using a framework to share the `ManageEventData` code?
 - Head the extension view with the day of the week and date of the day shown
 - Show reminders due today and tomorrow (and any overdue?)
 - Show alarms set in the clock app (not possible to access this data)
