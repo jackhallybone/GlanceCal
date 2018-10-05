@@ -47,12 +47,11 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
         // Perform any setup necessary in order to update the view.
 
+        loadData()
+
         // If an error is encountered, use NCUpdateResult.Failed
         // If there's no update required, use NCUpdateResult.NoData
         // If there's an update, use NCUpdateResult.NewData
-
-        loadData()
-
         completionHandler(NCUpdateResult.newData)
     }
 

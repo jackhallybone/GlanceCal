@@ -25,8 +25,8 @@ Make two quick and simple iOS Today View extensions/widgets that presents all th
 - Add calendar colour on the left the default calendar app/extension
 - Handle 12h and 24h display options
 - Order the all day events as they are in the calendar app?
-- Link to the event in the calendar app when pressed in extension?
-- Better documentation once I really understand all my optional unwrapping etc
+- Link to the event in the calendar app when pressed in extension (or disable table user interaction)?
+- Only need to perform update when there is new data?
 
 
 ### Issues:
@@ -34,6 +34,8 @@ Make two quick and simple iOS Today View extensions/widgets that presents all th
 
 
 ### To Consider:
+- Option to choose which calendars are displayed
+- Option to hide events when device is locked
 - Should I be using a framework to share the `ManageEventData` code?
 - Head the extension view with the day of the week and date of the day shown
 - Show reminders due today and tomorrow (and any overdue?)
