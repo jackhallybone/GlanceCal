@@ -22,20 +22,24 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         super.viewDidLoad()
         // Do any additional setup after loading the view from its nib.
 
-        self.extensionContext?.widgetLargestAvailableDisplayMode = .expanded
-
         loadData()
+        setWidgetShowMore()
     }
 
-    // FIXME: "See More" button expands but not to the size of the content...
-    func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize)
-    {
-        if activeDisplayMode == .expanded
-        {
-            preferredContentSize = CGSize(width: 0.0, height: 60 * CGFloat(data.count))
+    func setWidgetShowMore() {
+        // 2 or less events do not need a "show more" button
+        if data.count <= 2 {
+            self.extensionContext?.widgetLargestAvailableDisplayMode = .compact
+        } else {
+            self.extensionContext?.widgetLargestAvailableDisplayMode = .expanded
         }
-        else
-        {
+    }
+
+    func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
+        if activeDisplayMode == .expanded {
+            // Custom cells set to a height of 55
+            preferredContentSize = CGSize(width: 0.0, height: 55 * CGFloat(data.count))
+        } else {
             preferredContentSize = maxSize
         }
     }

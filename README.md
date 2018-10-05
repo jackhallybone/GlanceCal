@@ -22,13 +22,16 @@ Make two quick and simple iOS Today View extensions/widgets that presents all th
 ----
 
 ### To Do:
-- Hide "Show More" button when not required
-- Extension resize does not match data/table size
 - Add calendar colour on the left the default calendar app/extension
 - Handle 12h and 24h display options
 - Order the all day events as they are in the calendar app?
 - Link to the event in the calendar app when pressed in extension?
 - Better documentation once I really understand all my optional unwrapping etc
+
+
+### Issues:
+- Extensions are limited to the height of the device screen (eg, displays a maximum of 8 events per day on an iPhone SE)
+
 
 ### To Consider:
 - Should I be using a framework to share the `ManageEventData` code?
