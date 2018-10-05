@@ -17,37 +17,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GlanceCal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dnc-l0-UUc">
-                                <rect key="frame" x="0.0" y="36" width="320" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Requesting Calendar Access..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="60y-RG-dKP">
-                                <rect key="frame" x="0.0" y="124" width="320" height="21"/>
+                                <rect key="frame" x="0.0" y="198" width="320" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JbM-kL-fWT">
-                                <rect key="frame" x="0.0" y="153" width="320" height="30"/>
+                                <rect key="frame" x="0.0" y="227" width="320" height="30"/>
                                 <state key="normal" title="Go to Settings"/>
                                 <connections>
                                     <action selector="goToSettingsButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5cQ-ls-2sd"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GlanceCal-Logo-200" translatesAutoresizingMaskIntoConstraints="NO" id="Qnp-fa-r2W">
+                                <rect key="frame" x="135" y="52" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="CNO-ez-HKE"/>
+                                    <constraint firstAttribute="height" constant="50" id="KRy-9C-0b9"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GlanceCal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dnc-l0-UUc">
+                                <rect key="frame" x="0.0" y="110" width="320" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="JbM-kL-fWT" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Al7-Sd-E6d"/>
-                            <constraint firstItem="60y-RG-dKP" firstAttribute="top" secondItem="dnc-l0-UUc" secondAttribute="bottom" constant="64" id="GGv-Vx-Em5"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dnc-l0-UUc" secondAttribute="trailing" id="JZs-Bo-Rdg"/>
-                            <constraint firstItem="JbM-kL-fWT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="KEb-CA-t3x"/>
-                            <constraint firstItem="60y-RG-dKP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="SMr-As-me5"/>
-                            <constraint firstItem="60y-RG-dKP" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="iTe-Pb-aHK"/>
-                            <constraint firstItem="dnc-l0-UUc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="jeJ-XB-nLT"/>
-                            <constraint firstItem="dnc-l0-UUc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="ms2-LL-Bev"/>
-                            <constraint firstItem="JbM-kL-fWT" firstAttribute="top" secondItem="60y-RG-dKP" secondAttribute="bottom" constant="8" id="wsv-G9-KaL"/>
+                            <constraint firstItem="60y-RG-dKP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="1T2-IU-Nln"/>
+                            <constraint firstItem="JbM-kL-fWT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="3oq-Cn-zMp"/>
+                            <constraint firstItem="60y-RG-dKP" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="5Ni-vm-sCL"/>
+                            <constraint firstItem="JbM-kL-fWT" firstAttribute="top" secondItem="60y-RG-dKP" secondAttribute="bottom" constant="8" id="FAJ-9x-09w"/>
+                            <constraint firstItem="Qnp-fa-r2W" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LUr-HL-IJU"/>
+                            <constraint firstAttribute="trailing" secondItem="JbM-kL-fWT" secondAttribute="trailing" id="Qsq-oh-NfV"/>
+                            <constraint firstItem="dnc-l0-UUc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dJn-gb-nmb"/>
+                            <constraint firstItem="Qnp-fa-r2W" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="32" id="gBU-BX-ONS"/>
+                            <constraint firstItem="60y-RG-dKP" firstAttribute="top" secondItem="dnc-l0-UUc" secondAttribute="bottom" constant="64" id="nsR-05-lbv"/>
+                            <constraint firstItem="dnc-l0-UUc" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="tyh-Oh-PL5"/>
+                            <constraint firstItem="dnc-l0-UUc" firstAttribute="top" secondItem="Qnp-fa-r2W" secondAttribute="bottom" constant="8" id="yXg-Ya-OfG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -60,4 +69,7 @@
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="GlanceCal-Logo-200" width="200" height="200"/>
+    </resources>
 </document>

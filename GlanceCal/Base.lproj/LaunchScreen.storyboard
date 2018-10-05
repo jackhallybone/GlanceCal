@@ -17,26 +17,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GlanceCal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qCf-mO-oRO">
-                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GlanceCal-Logo-200" translatesAutoresizingMaskIntoConstraints="NO" id="tKn-o1-ppP">
+                                <rect key="frame" x="60" y="184" width="200" height="200"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qCf-mO-oRO" secondAttribute="trailing" id="4zQ-Yh-agD"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="qCf-mO-oRO" secondAttribute="bottom" id="5Ce-86-gz9"/>
-                            <constraint firstItem="qCf-mO-oRO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="9uw-uG-ajQ"/>
-                            <constraint firstItem="qCf-mO-oRO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="WPT-pC-4XY"/>
+                            <constraint firstItem="tKn-o1-ppP" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="AsF-nx-VKr"/>
+                            <constraint firstItem="tKn-o1-ppP" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="KOP-dM-HGs"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.5" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="GlanceCal-Logo-200" width="200" height="200"/>
+    </resources>
 </document>
