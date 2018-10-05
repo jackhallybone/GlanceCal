@@ -14,7 +14,7 @@ var eventStore = EKEventStore()
 
 class ManageEventData {
 
-    func hasCalendarAccess() -> Bool {
+    class func hasCalendarAccess() -> Bool {
         let status = EKEventStore.authorizationStatus(for: .event)
 
         var hasAccess: Bool = false
@@ -28,7 +28,7 @@ class ManageEventData {
         return hasAccess
     }
 
-    func fetchEventData(daysFromToday: Int) -> (Date, Array<EKEvent>) {
+    class func fetchEventData(daysFromToday: Int) -> (Date, Array<EKEvent>) {
 
         // Get the current datetime and calendar
         let date = Date()
@@ -69,7 +69,7 @@ class ManageEventData {
 
     }
 
-    func formatAllEvents(events: Array<EKEvent>) -> [Dictionary<String, Any>] {
+    class func formatAllEvents(events: Array<EKEvent>) -> [Dictionary<String, Any>] {
 
         var data: [Dictionary<String, Any>] = []
 
@@ -81,7 +81,7 @@ class ManageEventData {
         return data
     }
 
-    func formatEventData(event: EKEvent) -> Dictionary<String, Any> {
+    class func formatEventData(event: EKEvent) -> Dictionary<String, Any> {
 
         // NOTE: Strange things with optionals?
 
@@ -105,7 +105,7 @@ class ManageEventData {
 
     }
 
-    func formatEventTime(event: EKEvent) -> String {
+    class func formatEventTime(event: EKEvent) -> String {
         // Format time into a clean and descriptive string: "All Day" or "HH:MM to HH:MM"
 
         var eventTime = "All Day"
@@ -126,7 +126,7 @@ class ManageEventData {
 
     }
 
-    func formatSubtitleText(time: String, location: String) -> String {
+    class func formatSubtitleText(time: String, location: String) -> String {
         // Generate the subtitle as either "time | location" or just "time"
 
         var subtitle = String(format: "%@", time)

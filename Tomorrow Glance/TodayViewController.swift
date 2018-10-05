@@ -54,13 +54,15 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
 
     func loadData() {
 
-        if ManageEventData().hasCalendarAccess() {
+        data.removeAll()
+
+        if ManageEventData.hasCalendarAccess() {
             // Fetch all events on target day and process them if there are any
-            let (_, events) = ManageEventData().fetchEventData(daysFromToday: 1) // = TOMORROW
+            let (_, events) = ManageEventData.fetchEventData(daysFromToday: 1) // = TOMORROW
             if events.count == 0 {
                 noEvents()
             } else {
-                data = ManageEventData().formatAllEvents(events: events) // Overwrite event data
+                data = ManageEventData.formatAllEvents(events: events) // Overwrite event data
             }
         } else {
             accessDenied()
