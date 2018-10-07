@@ -22,10 +22,10 @@ Make two quick and simple iOS Today View extensions/widgets that presents all th
 ----
 
 ### To Do:
-- Add calendar colour on the left the default calendar app/extension
+- Fix the custom table cell implementation (there must be a cleaner way)
 - Handle 12h and 24h display options
 - Order the all day events as they are in the calendar app?
-- Link to the event in the calendar app when pressed in extension (or disable table user interaction)?
+- Link to the event in the calendar app when pressed in extension (table interaction currently disabled)?
 - Only need to perform update when there is new data?
 
 

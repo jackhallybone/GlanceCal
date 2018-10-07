@@ -92,10 +92,15 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "eventItem", for: indexPath)
 
-        cell.textLabel?.text = data[indexPath.row]["title"] as? String
-        cell.detailTextLabel?.text = data[indexPath.row]["subtitle"] as? String
+        let cell:TomorrowCustomCell = self.tableView.dequeueReusableCell(withIdentifier: "eventItem") as! TomorrowCustomCell
+
+        cell.cellColorView.backgroundColor = data[indexPath.row]["color"] as? UIColor
+        cell.cellColorView.layer.cornerRadius = 2.0
+        cell.cellColorView.clipsToBounds = true
+
+        cell.cellTitleLabel.text = data[indexPath.row]["title"] as? String
+        cell.cellSubtitleLabel.text = data[indexPath.row]["subtitle"] as? String
 
         return cell
     }
