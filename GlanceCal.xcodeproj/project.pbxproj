@@ -17,7 +17,6 @@
 		28DE795C215E33C600CAF50C /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DE795B215E33C600CAF50C /* TodayViewController.swift */; };
 		28DE795F215E33C600CAF50C /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28DE795D215E33C600CAF50C /* MainInterface.storyboard */; };
 		28DE7963215E33C600CAF50C /* Tomorrow Glance.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 28DE7958215E33C600CAF50C /* Tomorrow Glance.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		28EA491621651A1A00457564 /* ManageEventData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EA491521651A1A00457564 /* ManageEventData.swift */; };
 		28EA491721651A1A00457564 /* ManageEventData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EA491521651A1A00457564 /* ManageEventData.swift */; };
 		28EA491821651A1A00457564 /* ManageEventData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EA491521651A1A00457564 /* ManageEventData.swift */; };
 		28F2E61C215BDD8200835F17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F2E61B215BDD8200835F17 /* AppDelegate.swift */; };
@@ -324,7 +323,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28EA491621651A1A00457564 /* ManageEventData.swift in Sources */,
 				28F2E61E215BDD8200835F17 /* ViewController.swift in Sources */,
 				28F2E61C215BDD8200835F17 /* AppDelegate.swift in Sources */,
 			);
