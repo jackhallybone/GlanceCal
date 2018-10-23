@@ -12,6 +12,8 @@ import NotificationCenter
 
 class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDelegate, UITableViewDataSource {
 
+    let TARGET_DAY = 0 // TODAY
+
     // Note: Also connected Table View outlets to Today View Controller
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var displayLabel: UILabel!
@@ -61,7 +63,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
 
         if ManageEventData.hasCalendarAccess() {
             // Fetch all events on target day and process them if there are any
-            let (_, events) = ManageEventData.fetchEventData(daysFromToday: 0) // = TODAY
+            let (_, events) = ManageEventData.fetchEventData(daysFromToday: TARGET_DAY)
             if events.count == 0 {
                 noEvents()
             } else {
