@@ -107,4 +107,23 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         return cell
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        // Get the current datetime and calendar
+        let date = Date()
+        let calendar = Calendar.current
+
+        // Create a starting date component at the current time on the target day
+        var startDateComponents = DateComponents()
+        startDateComponents.day = TARGET_DAY
+        var startDate: Date? = nil
+        startDate = calendar.date(byAdding: startDateComponents, to: date, wrappingComponents: false)
+
+        let interval = startDate!.timeIntervalSinceReferenceDate
+        if let url = URL(string: "calshow:\(interval)") {
+            extensionContext?.open(url)
+        }
+
+    }
+
 }
