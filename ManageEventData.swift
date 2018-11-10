@@ -30,15 +30,10 @@ class ManageEventData {
 
     class func fetchEventData(daysFromToday: Int) -> (Date, Array<EKEvent>) {
 
-        // Get the current datetime and calendar
-        let date = Date()
-        let calendar = Calendar.current
-
         // Create a starting date component at the current time on the target day
         var startDateComponents = DateComponents()
         startDateComponents.day = daysFromToday
-        var startDate: Date? = nil
-        startDate = calendar.date(byAdding: startDateComponents, to: date, wrappingComponents: false)
+        var startDate = Calendar.current.date(byAdding: startDateComponents, to: Date(), wrappingComponents: false)
 
         // If target date is not today, starting datetime should be the start of the day
         let startOfTargetDay = Calendar.current.startOfDay(for: startDate!)
@@ -50,7 +45,7 @@ class ManageEventData {
         var endDateComponents = DateComponents()
         endDateComponents.day = daysFromToday + 1 // Add a day to the target day then...
         endDateComponents.second = -1 // ...remove one second to return to that day
-        let endDate = calendar.date(byAdding: endDateComponents, to: startOfTargetDay, wrappingComponents: false)
+        let endDate = Calendar.current.date(byAdding: endDateComponents, to: startOfTargetDay, wrappingComponents: false)
 
         // Create a predicate with the required start and end datetimes, for all calendars
         var predicateEvent: NSPredicate? = nil

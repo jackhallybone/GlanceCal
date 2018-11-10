@@ -22,10 +22,11 @@ Make two quick and simple iOS Today View extensions/widgets that presents all th
 ----
 
 ### To Do:
+- The 'no events' label should go to the calendar app day when pressed
+- The 'calendar access required' labels should go to the setting app:GlanceCal when pressed
 - Fix the custom table cell implementation (there must be a cleaner way)
 - Handle 12h and 24h display options
 - Order the all day events as they are in the calendar app?
-- Link to the event in the calendar app when pressed in extension (table interaction currently disabled)?
 - Only need to perform update when there is new data?
 
 
