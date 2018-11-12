@@ -22,6 +22,7 @@ Make two quick and simple iOS Today View extensions/widgets that presents all th
 ----
 
 ### To Do:
+- It does not handle timed multi-day events (eg., monday 11am to tues 5pm)
 - The 'no events' label should go to the calendar app day when pressed
 - The 'calendar access required' labels should go to the setting app:GlanceCal when pressed
 - Fix the custom table cell implementation (there must be a cleaner way)
