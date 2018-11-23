@@ -72,25 +72,25 @@ class ManageEventData {
 
     }
 
-    class func formatAllEvents(events: Array<EKEvent>) -> [Dictionary<String, Any>] {
+    class func formatAllEvents(daysFromToday: Int, events: Array<EKEvent>) -> [Dictionary<String, Any>] {
 
         var data: [Dictionary<String, Any>] = []
 
         for event in events {
-            let eventData = formatEventData(event: event)
+            let eventData = formatEventData(daysFromToday: daysFromToday, event: event)
             data.append(eventData)
         }
 
         return data
     }
 
-    class func formatEventData(event: EKEvent) -> Dictionary<String, Any> {
+    class func formatEventData(daysFromToday: Int, event: EKEvent) -> Dictionary<String, Any> {
 
         // NOTE: Strange things with optionals?
 
         // Extract and format the event data we are interested in
         let eventTitle = event.title ?? "Unnamed Event"
-        let eventTime = formatEventTime(event: event)
+        let eventTime = formatEventTime(daysFromToday: daysFromToday, event: event)
         let eventLocation = event.location ?? "Unknown Location"
         let eventCalCol = UIColor.init(cgColor: event.calendar.cgColor)
         let eventSubtitle = formatSubtitleText(time: eventTime, location: eventLocation)
@@ -108,11 +108,34 @@ class ManageEventData {
 
     }
 
-    class func formatEventTime(event: EKEvent) -> String {
+    class func formatEventTime(daysFromToday: Int, event: EKEvent) -> String {
         // Format time into a clean and descriptive string: "All Day" or "HH:MM to HH:MM"
+
+
+        // NOTE: This is not very nicely done. It requires `daysFromToday` to trickle
+        // down through several functions just to be used here and ruins their single action
+        // functionality. Additionally, --:-- and ++:++ are not great... FIXME ASAP
+
 
         var eventTime = "All Day"
         if !(event.isAllDay) {
+
+            // Get the current datetime and calendar
+            let date = Date()
+            let calendar = Calendar.current
+
+            // Create a starting date component at the current time on the target day
+            var startDateComponents = DateComponents()
+            startDateComponents.day = daysFromToday
+            var temp: Date? = nil
+            temp = calendar.date(byAdding: startDateComponents, to: date, wrappingComponents: false)
+            let targetDay = Calendar.current.component(.day, from: temp!)
+
+            let eventStart = Calendar.current.component(.day, from: event.startDate)
+            let eventEnd = Calendar.current.component(.day, from: event.endDate)
+
+            let diffStart = eventStart - targetDay;
+            let diffEnd = eventEnd - targetDay;
 
             let eventStartH = Calendar.current.component(.hour, from: event.startDate)
             let eventStartM = Calendar.current.component(.minute, from: event.startDate)
@@ -122,6 +145,31 @@ class ManageEventData {
 
             // Form "HH:MM to HH:MM"
             eventTime = String(format: "%02d:%02d to %02d:%02d", eventStartH, eventStartM, eventEndH, eventEndM)
+
+            var timeStart: String
+            if (diffStart < 0) {
+                timeStart = "--:--"
+            } else if (diffStart > 0) {
+                timeStart = "++:++"
+            } else {
+                timeStart = String(format: "%02d:%02d", eventStartH, eventStartM)
+            }
+
+            var timeEnd: String
+            if (diffEnd < 0) {
+                timeEnd = "--:--"
+            } else if (diffEnd > 0) {
+                timeEnd = "++:++"
+            } else {
+                timeEnd = String(format: "%02d:%02d", eventEndH, eventEndM)
+            }
+
+            if (diffStart < 0 && diffEnd > 0) {
+                eventTime = "All Day"
+            } else {
+                // Form "HH:MM to HH:MM"
+                eventTime = String(format: "%@ to %@", timeStart, timeEnd)
+            }
 
         }
 

@@ -67,7 +67,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
             if events.count == 0 {
                 noEvents()
             } else {
-                data = ManageEventData.formatAllEvents(events: events) // Overwrite event data
+                data = ManageEventData.formatAllEvents(daysFromToday: TARGET_DAY, events: events) // Overwrite event data
             }
         } else {
             accessDenied()
