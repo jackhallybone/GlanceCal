@@ -22,7 +22,8 @@ Make two quick and simple iOS Today View extensions/widgets that presents all th
 ----
 
 ### To Do:
-- Improve multiday (not all day) events. Eg., Monday 10am to Wed 9pm should show: M="Starts 10:00", T="All Day", W="Ends 21:00".
+- Improve implementation of the `formatEventTime` etc methods (annoying to pass `daysFromToday` through several).
+- The order of the events is not so nice (eg., multiday all days are not listed at top...)
 - The 'no events' label should go to the calendar app day when pressed
 - The 'calendar access required' labels should go to the setting app:GlanceCal when pressed
 - Holiday calendar now shows up (didn't before...?) even though it is hidden in calendar app. Should use the shown list in the calendar app if we have access to that information?

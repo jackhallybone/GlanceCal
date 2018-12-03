@@ -111,69 +111,52 @@ class ManageEventData {
     class func formatEventTime(daysFromToday: Int, event: EKEvent) -> String {
         // Format time into a clean and descriptive string: "All Day" or "HH:MM to HH:MM"
 
+        // NOTE FIXME: This requires `daysFromToday` to be passed through several fuctions. Clean this up if/when possible.
 
-        // NOTE: This is not very nicely done. It requires `daysFromToday` to trickle
-        // down through several functions just to be used here and ruins their single action
-        // functionality. Additionally, --:-- and ++:++ are not great... FIXME ASAP
+        // Get the current datetime and calendar
+        let date = Date()
+        let calendar = Calendar.current
 
+        // Create a starting date component at the current time on the target day
+        var shiftToTargetDate = DateComponents()
+        shiftToTargetDate.day = daysFromToday
+        var targetDate: Date? = nil
+        targetDate = calendar.date(byAdding: shiftToTargetDate, to: date, wrappingComponents: false)
+        let targetDay = Calendar.current.component(.day, from: targetDate!)
 
-        var eventTime = "All Day"
-        if !(event.isAllDay) {
+        let eventStart = Calendar.current.component(.day, from: event.startDate)
+        let eventEnd = Calendar.current.component(.day, from: event.endDate)
 
-            // Get the current datetime and calendar
-            let date = Date()
-            let calendar = Calendar.current
+        let diffStart = eventStart - targetDay;
+        let diffEnd = eventEnd - targetDay;
 
-            // Create a starting date component at the current time on the target day
-            var startDateComponents = DateComponents()
-            startDateComponents.day = daysFromToday
-            var temp: Date? = nil
-            temp = calendar.date(byAdding: startDateComponents, to: date, wrappingComponents: false)
-            let targetDay = Calendar.current.component(.day, from: temp!)
+        var timeEvent: String
 
-            let eventStart = Calendar.current.component(.day, from: event.startDate)
-            let eventEnd = Calendar.current.component(.day, from: event.endDate)
+        if (event.isAllDay || (diffStart < 0 && diffEnd > 0)) { // starts before today and ends after
+            timeEvent = "All Day"
+        } else {
 
-            let diffStart = eventStart - targetDay;
-            let diffEnd = eventEnd - targetDay;
-
+            // Extract the Hour and Minute data from the start and end dates
             let eventStartH = Calendar.current.component(.hour, from: event.startDate)
             let eventStartM = Calendar.current.component(.minute, from: event.startDate)
-
             let eventEndH = Calendar.current.component(.hour, from: event.endDate)
             let eventEndM = Calendar.current.component(.minute, from: event.endDate)
 
-            // Form "HH:MM to HH:MM"
-            eventTime = String(format: "%02d:%02d to %02d:%02d", eventStartH, eventStartM, eventEndH, eventEndM)
+            // Form as "HH:MM"
+            let timeStart = String(format: "%02d:%02d", eventStartH, eventStartM)
+            let timeEnd = String(format: "%02d:%02d", eventEndH, eventEndM)
 
-            var timeStart: String
-            if (diffStart < 0) {
-                timeStart = "--:--"
-            } else if (diffStart > 0) {
-                timeStart = "++:++"
-            } else {
-                timeStart = String(format: "%02d:%02d", eventStartH, eventStartM)
-            }
-
-            var timeEnd: String
-            if (diffEnd < 0) {
-                timeEnd = "--:--"
-            } else if (diffEnd > 0) {
-                timeEnd = "++:++"
-            } else {
-                timeEnd = String(format: "%02d:%02d", eventEndH, eventEndM)
-            }
-
-            if (diffStart < 0 && diffEnd > 0) {
-                eventTime = "All Day"
-            } else {
-                // Form "HH:MM to HH:MM"
-                eventTime = String(format: "%@ to %@", timeStart, timeEnd)
+            if (diffStart < 0 && diffEnd == 0) { // starts before today and ends today
+                timeEvent = String(format: "Ends %@", timeEnd)
+            } else if (diffStart == 0 && diffEnd > 0) { // starts today and ends after today
+                timeEvent = String(format: "Starts %@", timeStart)
+            } else { // (diffStart == 0 && diffEnd == 0) { // only today (and fallback)
+                timeEvent = String(format: "%@ to %@", timeStart, timeEnd)
             }
 
         }
 
-        return eventTime
+        return timeEvent
 
     }
 
