@@ -23,6 +23,7 @@ Make two quick and simple iOS Today View extensions/widgets that presents all th
 
 ### To Do:
 - Improve implementation of the `formatEventTime` etc methods (annoying to pass `daysFromToday` through several).
+- Is notification centre framework required for the extensions, why is it there?
 - The order of the events is not so nice (eg., multiday all days are not listed at top...)
 - The 'no events' label should go to the calendar app day when pressed
 - The 'calendar access required' labels should go to the setting app:GlanceCal when pressed
